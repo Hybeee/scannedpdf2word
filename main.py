@@ -60,6 +60,16 @@ if __name__ == "__main__":
         
         ocr_results, img_width, img_height = runOCR(image_path)
         
+        page_width = 0
+        page_height = 0
+        if(img_width > img_height):
+            page_width = 11 * 72
+            page_height = 8.5 * 72
+        else:
+            page_width = 8.5 * 72
+            page_height = 11 * 72
+            
+        
         AddTextBoxToWordDocument(outputs=ocr_results,
                                  page_width=8.5 * 72, page_height=11 * 72,  
                                  image_width=img_width, image_height=img_height, 
